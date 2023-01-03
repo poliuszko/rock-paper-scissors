@@ -26,3 +26,20 @@
   display: flex;
   justify-content: space-around;
 }
+
+.game_status_container {
+  color: #fff;
+  background-color: #373e46; /* Blue */
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  font-size: large;
+  font-weight: bold;
+  padding: 30px;
+  width: 30%;
+  border-radius: 5px;
+  border-color: #373e46;
+}
