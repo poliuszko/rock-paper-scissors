@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu_container {
+  color: #fff;
+  background-color: #5995da; /* Blue */
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+.scores {
+  color: #fff;
+  background-color: #373e46; /* Blue */
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.options_container {
+  color: #fff;
+  background-color: #5995da; /* Blue */
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+}
