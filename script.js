@@ -2,49 +2,101 @@
 // Selecting elements
 const playerScore = document.querySelector(".player");
 const computerScore = document.querySelector(".computer");
+const gameInfo = document.querySelector(".game_status_container");
+const btnPaper = document.querySelector(".paper");
+const btnRock = document.querySelector(".rock");
+const btnScissors = document.querySelector(".scissors");
 
-const btnNew = document.querySelector(".btn--new");
+let gameScore = [0,0];
 
-let scores;
+const init = function () {
+  gameScores = [0, 0];
+    
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
 
-btnRoll.addEventListener("click", function () {
-  if (playing) {
-    // 1. Generating a random dice roll
-    const dice = Math.trunc(Math.random() * 6) + 1;
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
 
-    // 2. Display dice
-    diceEl.classList.remove("hidden");
-    diceEl.src = `dice-${dice}.png`;
+  diceEl.classList.add('hidden');
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
+};
+init();
 
-    // 3. Check for rolled 1
-    if (dice !== 1) {
-      // Add dice to current score
-      currentScore += dice;
-      document.getElementById(`current--${activePlayer}`).textContent =
-        currentScore;
-    } else {
-      // Switch to next player
-      switchPlayer();
-    }
+
+
+btnPaper.addEventListener("click", function () {
+    const choices = ["paper", "rock", "scissors"];
+    // console.log(choices);
+
+    const getComputerChoice = function () {
+        return choices[Math.trunc(Math.random() * 3)];
+        }
+    const computerSelection = getComputerChoice();
+    
+    let roundScore = playRound("paper", computerSelection);
+    
+    gameScore[0] += roundScore[0];
+    gameScore[1] += roundScore[1];
+    playerScore.textContent =  `Player: ${gameScore[0]}`;
+    computerScore.textContent = `Computer: ${gameScore[1]}`
+    console.log(gameScore);
   }
-});
+);
+
+btnRock.addEventListener("click", function () {
+    const choices = ["paper", "rock", "scissors"];
+    // console.log(choices);
+
+    const getComputerChoice = function () {
+        return choices[Math.trunc(Math.random() * 3)];
+        }
+    const computerSelection = getComputerChoice();
+    
+    let roundScore = playRound("rock", computerSelection);
+    
+    gameScore[0] += roundScore[0];
+    gameScore[1] += roundScore[1];
+    playerScore.textContent =  `Player: ${gameScore[0]}`;
+    computerScore.textContent = `Computer: ${gameScore[1]}`
+    console.log(gameScore);
+  }
+);
+
+btnScissors.addEventListener("click", function () {
+    const choices = ["paper", "rock", "scissors"];
+    // console.log(choices);
+
+    const getComputerChoice = function () {
+        return choices[Math.trunc(Math.random() * 3)];
+        }
+    const computerSelection = getComputerChoice();
+    
+    let roundScore = playRound("scissors", computerSelection);
+    
+    gameScore[0] += roundScore[0];
+    gameScore[1] += roundScore[1];
+    playerScore.textContent =  `Player: ${gameScore[0]}`;
+    computerScore.textContent = `Computer: ${gameScore[1]}`
+    console.log(gameScore);
+  }
+);
 
 // Starting conditions
 
-const choices = ["paper", "rock", "scissors"];
-// console.log(choices);
 
-const getComputerChoice = function () {
-  return choices[Math.trunc(Math.random() * 3)];
-};
-//return choices[(Math.trunc(Math.random()*3))]};
-
-console.log(getComputerChoice());
 
 const playRound = function (playerSelection, computerSelection) {
   //    let playerSelection = prompt('Plase select: Paper Rock or Scissors');
   //    console.log(playerSelection);
-  console.log(
+  gameInfo.textContent = `Player selection ${playerSelection} -- Computer Selection ${computerSelection}`;
+    console.log(
     `Player selection ${playerSelection} -- Computer Selection ${computerSelection}`
   );
   if (playerSelection === "paper" && computerSelection === "rock") {
@@ -65,7 +117,7 @@ const game = function () {
   for (let i = 0; i < 5; i++) {
     console.log(`GAME ${i + 1}`);
     let roundScore = playRound(
-      prompt("Please give your selection:").toLowerCase(),
+      //prompt("Please give your selection:").toLowerCase(),
       getComputerChoice()
     );
     gameScore[0] += roundScore[0];
@@ -82,4 +134,4 @@ const game = function () {
 };
 
 //playRound(prompt('Please give your selection:'),getComputerChoice());
-game();
+//game();
