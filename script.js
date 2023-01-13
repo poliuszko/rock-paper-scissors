@@ -84,9 +84,6 @@ btnInit.addEventListener("click", function () {
 
 });
 
-// Starting conditions
-
-
 
 const playRound = function (playerSelection, computerSelection) {
   //    let playerSelection = prompt('Plase select: Paper Rock or Scissors');
@@ -108,28 +105,3 @@ const playRound = function (playerSelection, computerSelection) {
   }
 };
 
-/*
-const game = function () {
-  let gameScore = [0, 0];
-  for (let i = 0; i < 5; i++) {
-    console.log(`GAME ${i + 1}`);
-    let roundScore = playRound(
-      //prompt("Please give your selection:").toLowerCase(),
-      getComputerChoice()
-    );
-    gameScore[0] += roundScore[0];
-    gameScore[1] += roundScore[1];
-    console.log(`GAME ${i + 1} scores ${gameScore}`);
-  }
-  if (gameScore[0] > gameScore[1]) {
-    console.log("Player is the winner!!!");
-  } else if (gameScore[0] === gameScore[1]) {
-    console.log("Draw!!");
-  } else {
-    console.log("Computer wins!!!");
-  }
-}; 
-*/
-
-//playRound(prompt('Please give your selection:'),getComputerChoice());
-//game();
