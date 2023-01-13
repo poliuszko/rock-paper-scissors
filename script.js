@@ -6,26 +6,16 @@ const gameInfo = document.querySelector(".game_status_container");
 const btnPaper = document.querySelector(".paper");
 const btnRock = document.querySelector(".rock");
 const btnScissors = document.querySelector(".scissors");
+const btnInit = document.querySelector(".init");
 
 let gameScore = [0,0];
 
 const init = function () {
-  gameScores = [0, 0];
-    
-  currentScore = 0;
-  activePlayer = 0;
-  playing = true;
-
-  score0El.textContent = 0;
-  score1El.textContent = 0;
-  current0El.textContent = 0;
-  current1El.textContent = 0;
-
-  diceEl.classList.add('hidden');
-  player0El.classList.remove('player--winner');
-  player1El.classList.remove('player--winner');
-  player0El.classList.add('player--active');
-  player1El.classList.remove('player--active');
+  gameScore = [0, 0];
+  
+  playerScore.textContent = (`Player: ${gameScore[0]}`)
+  computerScore.textContent = (`Computer: ${gameScore[1]}`)
+  
 };
 init();
 
@@ -88,6 +78,12 @@ btnScissors.addEventListener("click", function () {
   }
 );
 
+
+btnInit.addEventListener("click", function () {
+    init();
+
+});
+
 // Starting conditions
 
 
@@ -112,6 +108,7 @@ const playRound = function (playerSelection, computerSelection) {
   }
 };
 
+/*
 const game = function () {
   let gameScore = [0, 0];
   for (let i = 0; i < 5; i++) {
@@ -131,7 +128,8 @@ const game = function () {
   } else {
     console.log("Computer wins!!!");
   }
-};
+}; 
+*/
 
 //playRound(prompt('Please give your selection:'),getComputerChoice());
 //game();
